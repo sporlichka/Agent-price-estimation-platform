@@ -1,31 +1,46 @@
 # CFO Bot Price Estimation Platform
 
-Single-page calculator for estimating monthly LLM + hosting costs and exporting a PDF report.
+Веб-приложение для оценки ежемесячной стоимости AI-бота (модель + хостинг) с возможностью экспорта отчета в PDF.
 
-## Stack
+## Production URL
+
+- https://bot-estimation-app.web.app
+
+## Что реализовано
+
+- Калькулятор месячной стоимости по выбранной модели и типу хостинга.
+- Гибкий ввод параметров: слайдеры + ручной ввод чисел (например, `2 500 000` запросов).
+- Прогноз на `n` месяцев.
+- Экспорт результатов в PDF.
+- Unit-тесты для расчетной логики (`Vitest`).
+
+## Стек
 
 - React + Vite
 - Tailwind CSS
 - Vitest
 - jsPDF
+- Firebase Hosting
 
-## Run locally
+## Как запустить локально
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Quality checks
+После запуска открой адрес, который покажет Vite (обычно `http://localhost:5173` или `http://localhost:5174`).
+
+## Проверка качества
 
 ```bash
 npm run lint
 npm run test
 ```
 
-## Project structure
+## Структура проекта
 
-- `src/logic/calculator.js`: pricing formula, model/hosting constants, long-term projection.
-- `src/components/`: reusable UI blocks (selectors, sliders, result card, header).
-- `src/App.jsx`: state and integration of UI + logic + PDF export.
-- `src/tests/calculator.test.js`: unit tests for core formula and projection.
+- `src/logic/calculator.js` — формулы, данные моделей/хостинга, долгосрочный прогноз.
+- `src/components/` — UI-компоненты (селекторы, слайдеры, блок результата, заголовок).
+- `src/App.jsx` — интеграция состояния, логики расчета и PDF-экспорта.
+- `src/tests/calculator.test.js` — unit-тесты расчетов.
